@@ -1,0 +1,97 @@
+version: '3'
+services:
+
+ #PHP Service
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    image: jguyomard/laravel-php:latest
+    container_name: app
+    restart: unless-stopped
+    depends_on:
+      - redis
+      - db
+    tty: true
+    ports:
+      - "9000:9000"
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www
+    volumes:
+      - ./app:/var/www
+    networks:
+      - app-network
+
+
+  #PHP worker Service
+  worker:
+    image: jguyomard/laravel-php:latest
+    container_name: worker
+    restart: unless-stopped
+    depends_on:
+      - app
+    tty: true
+    environment:
+      SERVICE_NAME: worker
+      SERVICE_TAGS: dev
+    working_dir: /var/www
+    volumes:
+      - ./app:/var/www
+    command: php artisan queue:work redis --queue=default,live,email,sms,invite --sleep=3 --tries=3 --daemon 
+    networks:
+      - app-network
+
+  #Nginx Service
+  webserver:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    image: nginx:alpine
+    container_name: webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./app:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - app-network
+
+  #MySQL Service
+  db:
+    image: mysql:latest
+    container_name: db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: mix
+      MYSQL_ROOT_PASSWORD: "12345678"
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./mysql/data:/var/lib/mysql/
+    networks:
+      - app-network
+
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
