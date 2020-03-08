@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Repositories\Sms\Senders;
+namespace App\Services\Sms\Senders;
 
 
-use App\Repositories\Sms\SmsSenderInterface;
+use App\Services\Sms\SmsSenderInterface;
 
 /**
  * send sms by firebase
  * Class FirebaseSmsSender
- * @package App\Repositories\Sms
+ * @package App\Services\Sms
  */
 class FirebaseSmsSender implements SmsSenderInterface
 {

@@ -1,11 +1,11 @@
 <?php
 
 
-namespace App\Repositories\Sms\Senders;
+namespace App\Services\Sms\Senders;
 
 
 use App\Models\Sms;
-use App\Repositories\Sms\SmsSenderInterface;
+use App\Services\Sms\SmsSenderInterface;
 
 use Illuminate\Support\Facades\Log;
 
@@ -14,7 +14,7 @@ use Kavenegar\Exceptions\ApiException;
 /**
  * send sms by Payamak Panel
  * Class PayamakPanelSmsSender
- * @package App\Repositories\Sms
+ * @package App\Services\Sms
  */
 class KavenegarSmsSender implements  SmsSenderInterface
 {

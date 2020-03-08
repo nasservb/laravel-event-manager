@@ -1,23 +1,23 @@
 <?php
 
 
-namespace App\Repositories\Invite;
+namespace App\Services\Invite;
 
 use App\Jobs\SendInvite;
 use App\Models\Invite;
 use App\Models\Setting;
 use App\Models\User;
-use App\Repositories\Invite\InviteSenderInterface;
-use App\Repositories\Invite\Senders\EmailInviteSender;
-use App\Repositories\Invite\Senders\PushNotificationInviteSender;
-use App\Repositories\Invite\Senders\SmsInviteSender;
+use App\Services\Invite\InviteSenderInterface;
+use App\Services\Invite\Senders\EmailInviteSender;
+use App\Services\Invite\Senders\PushNotificationInviteSender;
+use App\Services\Invite\Senders\SmsInviteSender;
 
 /**
  * Handle Invite send functionality
  * Class InviteHelper
- * @package App\Repositories\Invite
+ * @package App\Services\Invite
  */
-class InviteSender
+class InviteSender implements InviteSenderInterface
 {
 
     private   $driver = null;
@@ -55,7 +55,7 @@ class InviteSender
      * @return \Illuminate\Foundation\Bus\PendingDispatch
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-    public function SendInvite(User $user, Invite $invite){
+    public function Send(User $user, Invite $invite){
 
         $driver =$this->GetDriver();
 

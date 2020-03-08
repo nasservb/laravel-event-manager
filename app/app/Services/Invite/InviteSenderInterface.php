@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Repositories\Invite;
+namespace App\Services\Invite;
 use App\Models\Invite;
 use App\Models\User;
 
 /**
  * Interface InviteSenderInterface for send invite
- * @package App\Repositories\Contracts\Invite
+ * @package App\Services\Contracts\Invite
  */
 interface  InviteSenderInterface{
 

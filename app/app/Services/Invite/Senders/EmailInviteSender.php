@@ -1,18 +1,18 @@
 <?php
 
 
-namespace App\Repositories\Invite\Senders;
+namespace App\Services\Invite\Senders;
 
 
 use App\Jobs\SendMail;
 use App\Mail\ReceiveInviteMessageMail;
 use App\Models\Invite;
 use App\Models\User;
-use App\Repositories\Invite\InviteSenderInterface;
+use App\Services\Invite\InviteSenderInterface;
 
 /**
  * Class EmailInviteSender
- * @package App\Repositories\Invite
+ * @package App\Services\Invite
  */
 class EmailInviteSender implements InviteSenderInterface
 {

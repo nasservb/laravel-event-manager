@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Repositories\Sms\SmsSenderInterface;
+use App\Services\Sms\SmsSenderInterface;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;

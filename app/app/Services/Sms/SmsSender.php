@@ -1,21 +1,21 @@
 <?php
 
 
-namespace App\Repositories\Sms;
+namespace App\Services\Sms;
 
 use App\Jobs\SendSms;
 use App\Models\Setting;
-use App\Repositories\Sms\SmsSenderInterface;
-use App\Repositories\Sms\Senders\FirebaseSmsSender;
-use App\Repositories\Sms\Senders\KavenegarSmsSender;
-use App\Repositories\Sms\Senders\PayamakPanelSmsSender;
+use App\Services\Sms\SmsSenderInterface;
+use App\Services\Sms\Senders\FirebaseSmsSender;
+use App\Services\Sms\Senders\KavenegarSmsSender;
+use App\Services\Sms\Senders\PayamakPanelSmsSender;
 
 /**
  * Handle sms send functionality
  * Class SmsHelper
  * @package App\Helpers
  */
-class SmsSender
+class SmsSender implements SmsSenderInterface
 {
 
     private   $driver = null;
@@ -54,7 +54,7 @@ class SmsSender
      * @return \Illuminate\Foundation\Bus\PendingDispatch
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-    public function SendSms(String $to , String $message){
+    public function SendSms(String $to , String $message):bool{
 
         $driver =$this->GetDriver();
 

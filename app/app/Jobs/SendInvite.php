@@ -4,7 +4,7 @@ namespace App\Jobs;
 
 use App\Models\Invite;
 use App\Models\User;
-use App\Repositories\Invite\InviteSenderInterface;
+use App\Services\Invite\InviteSenderInterface;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;

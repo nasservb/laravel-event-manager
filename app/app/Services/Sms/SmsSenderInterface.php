@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Repositories\Sms;
+namespace App\Services\Sms;
 
 /**
  * for integrate all sms functionality
  * Interface SmsSenderInterface
- * @package App\Repositories\Contracts\Sms
+ * @package App\Services\Contracts\Sms
  */
 interface SmsSenderInterface
 {
@@ -16,7 +16,7 @@ interface SmsSenderInterface
      * @param $message
      * @return bool
      */
-    public function SendSms($to,$message):bool ;
+    public function SendSms(String $to,String $message):bool ;
 
 
 }

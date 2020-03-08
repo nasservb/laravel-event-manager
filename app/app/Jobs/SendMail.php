@@ -3,7 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\Visit;
-use App\Repositories\Contracts\Sms\SmsSenderInterface;
+use App\Services\Contracts\Sms\SmsSenderInterface;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\TransportManager;
 use Illuminate\Queue\SerializesModels;

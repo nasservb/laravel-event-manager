@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Repositories\Invite\Senders;
+namespace App\Services\Invite\Senders;
 
 use App\Helpers\NormalizeHelper;
 use App\Models\Invite;
 use App\Models\Setting;
 use App\Models\User;
-use App\Repositories\Invite\InviteSenderInterface;
-use App\Repositories\Sms\SmsSender;
+use App\Services\Invite\InviteSenderInterface;
+use App\Services\Sms\SmsSender;
 
 /**
  * send invite by sms
  * Class SmsInviteSender
- * @package App\Repositories\Invite
+ * @package App\Services\Invite
  */
 class SmsInviteSender implements  InviteSenderInterface {
 

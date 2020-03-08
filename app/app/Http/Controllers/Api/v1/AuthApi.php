@@ -18,7 +18,7 @@ use App\Mail\WelcomeSellerMail;
 use App\Models\Setting;
 use App\Models\User;
 use App\Models\UserMeta;
-use App\Repositories\Sms\SmsSender;
+use App\Services\Sms\SmsSender;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

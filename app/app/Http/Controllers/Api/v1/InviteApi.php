@@ -13,7 +13,7 @@ use App\Models\Event;
 use App\Http\Controllers\Controller;
 use App\Models\Invite;
 use App\Models\User;
-use App\Repositories\Invite\InviteSender;
+use App\Services\Invite\InviteSender;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

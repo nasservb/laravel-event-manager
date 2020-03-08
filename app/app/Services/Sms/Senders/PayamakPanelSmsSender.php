@@ -1,15 +1,15 @@
 <?php
 
 
-namespace App\Repositories\Sms\Senders;
+namespace App\Services\Sms\Senders;
 
 
-use App\Repositories\Sms\SmsSenderInterface;
+use App\Services\Sms\SmsSenderInterface;
 
 /**
  * send sms by Payamak Panel
  * Class PayamakPanelSmsSender
- * @package App\Repositories\Sms
+ * @package App\Services\Sms
  */
 class PayamakPanelSmsSender implements  SmsSenderInterface
 {
